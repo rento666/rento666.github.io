@@ -109,7 +109,7 @@ theme: LiveForCode
 deploy:
   type: 'git'
   repo: git@gitee.com:aharentoy/tongshuo.git
-  branch: master
+  branch: pages
 
 
 # abbrlink config
