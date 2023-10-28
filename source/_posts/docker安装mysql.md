@@ -187,3 +187,13 @@ docker stop mysql
 # 进入容器
 docker exec -it mysql bash
 ```
+
+# 11.dockerfile
+
+将上述正确的步骤总结为 dockerfile：
+
+**TODO**
+
+```dockerfile
+FROM mysql:5.7
+```
