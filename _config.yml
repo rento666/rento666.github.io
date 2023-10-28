@@ -109,7 +109,7 @@ theme: LiveForCode
 deploy:
   type: 'git'
   repo: git@github.com:rento666/rento666.github.io.git
-  branch: main
+  branch: gh-pages
 
 
 # abbrlink config
