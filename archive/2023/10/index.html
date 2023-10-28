@@ -8,7 +8,7 @@
     <meta http-equiv="Cache-Control" content="no-siteapp">
     <title>
         
-            docker安装mysql
+            归档
         
     </title>
     <link rel="shortcut icon" href="#"/>
@@ -31,28 +31,15 @@
 <meta name="generator" content="Hexo 6.3.0"></head>
 <body>
     <a id="cover"></a>
-    <link type="text/css" rel="stylesheet" href="/css/post.css">
+    <link type="text/css" rel="stylesheet" href="/css/archive.css">
 <div id="header" class="header">
     <div class="vertical">
         <div class="inner">
             
-                <h1 class="header-subtitle">docker安装mysql</h1>
+                <h1 class="header-subtitle">归档</h1>
                 <div class="header-subinfo">
-                    <p class="article-info-text">
-                        <span>
-                            <i class="iconfont icon-time"></i> 发表时间：2023-04-06
-                        </span>
-                        
-                            <span id="/posts/632199233/" class="leancloud_visitors" data-flag-title="docker安装mysql">
-                                <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
-                            </span>
-                        
-                        <span>
-                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/posts/632199233/"></span>
-                        </span>  
-                    </p>
-                    
-                    
+                    <p class="article-info-text Chinese"></p>
+                    <p class="article-info-text English"></p>                  
                 </div>
             
         </div>
@@ -61,124 +48,37 @@
 </div>
 <div id="container">
     
-        <!-- 文章页面 -->
-        <div id="article">
-            <div class="toc"></div>
-            <div class="article-body">
-                <blockquote>
-<p>在学习了上一节<a target="_blank" rel="noopener" href="https://rento666.github.io/posts/3219586390">linux 安装 docker</a>后，这一节我们来学习如何在 docker 中安装 MySQL<br>示例中：MySQL 版本为 5.7</p>
-</blockquote>
-<h1 id="1-检查当前所有-docker-下载的镜像"><a href="#1-检查当前所有-docker-下载的镜像" class="headerlink" title="1. 检查当前所有 docker 下载的镜像"></a>1. 检查当前所有 docker 下载的镜像</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure>
-
-<p>如下图所示，我们在上一节安装了一个<code>hello-world</code>镜像：</p>
-<p><img src="/posts/632199233/1.png" alt="Alt text"></p>
-<h1 id="2-在-docker-仓库中搜索-mysql-的镜像："><a href="#2-在-docker-仓库中搜索-mysql-的镜像：" class="headerlink" title="2. 在 docker 仓库中搜索 mysql 的镜像："></a>2. 在 docker 仓库中搜索 mysql 的镜像：</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker search mysql</span><br></pre></td></tr></table></figure>
-
-<p>下载镜像：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql</span><br></pre></td></tr></table></figure>
-
-<p><strong>先别下载！</strong>，因为它默认是下载最新版本，所以我们这里指定版本 5.7，即为<code>docker pull mysql:5.7</code></p>
-<p>操作如下所示：<br><img src="/posts/632199233/2.png" alt="Alt text"></p>
-<h1 id="3-查看是否下载成功"><a href="#3-查看是否下载成功" class="headerlink" title="3.查看是否下载成功"></a>3.查看是否下载成功</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure>
-
-<p>如图所示，有 MySQL5.7 即为下载成功~<br><img src="/posts/632199233/3.png" alt="Alt text"></p>
-<h1 id="4-启动-mysql-容器"><a href="#4-启动-mysql-容器" class="headerlink" title="4.启动 mysql 容器"></a>4.启动 mysql 容器</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 3306:3306 --name mysql -v /mydata/mysql/log:/var/log/mysql -v /mydata/mysql/data:/var/lib/mysql -v /mydata/mysql/conf:/etc/mysql -e MYSQL_ROOT_PASSWORD=root123 -d mysql:5.7</span><br></pre></td></tr></table></figure>
-
-<p>参数说明：</p>
-<ul>
-<li><code>-p 3306:3306</code>：将容器的 3306 端口映射到本地的 3306 端口</li>
-<li><code>--name mysql</code>：容器名称</li>
-<li><code>-v /mydata/mysql/log:/var/log/mysql</code>：将容器的日志文件夹挂载到本地</li>
-<li><code>-v /mydata/mysql/data:/var/lib/mysql</code>：将容器的配置文件夹挂载到本地</li>
-<li><code>-v /mydata/mysql/conf:/etc/mysql</code>：将容器的配置文件夹挂载到本地</li>
-<li><code>-e MYSQL_ROOT_PASSWORD=root123</code>：初始化 root 用户的密码</li>
-<li><code>-d mysql:5.7</code>：指定镜像</li>
-</ul>
-<h1 id="5-查看是否启动成功"><a href="#5-查看是否启动成功" class="headerlink" title="5.查看是否启动成功"></a>5.查看是否启动成功</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps</span><br></pre></td></tr></table></figure>
-
-<p>发现是 Exited 状态，也就是启动失败了：<br><img src="/posts/632199233/4.png" alt="Alt text"></p>
-<p>输入<code>docker log mysql</code> 查看一下日志<br><img src="/posts/632199233/5.png" alt="Alt text"></p>
-<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>在查阅一番资料后，有了解决办法：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">宿主机创建数据存放目录映射到容器</span></span><br><span class="line">mkdir -p /mydata/mysql/data</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">宿主机创建配置文件目录映射到容器</span></span><br><span class="line">mkdir -p /mydata/mysql/conf #(需要在此目录下创建&quot;conf.d&quot;、&quot;mysql.conf.d&quot;两个目录)</span><br><span class="line">mkdir -p /mydata/mysql/conf/conf.d # (建议在此目录创建my.cnf文件并进行相关MySQL配置)</span><br><span class="line">mkdir -p /mydata/mysql/conf/mysql.conf.d</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">宿主机创建日志目录映射到容器</span></span><br><span class="line">mkdir -p /mydata/mysql/log</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建my.cnf</span></span><br><span class="line">touch /mydata/mysql/conf/conf.d/my.cnf</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">然后vim</span></span><br><span class="line">vim /mydata/mysql/conf/conf.d/my.cnf</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">进入到vim后，按i进入编辑模式</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">把下面代码复制进去-------------------------------</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">注意，这里必须是0.0.0.0，不能是127.0.0.1，否则在自己电脑(windows/mac)上连不上服务器(linux docker)上的MySQL</span></span><br><span class="line">[mysqld]</span><br><span class="line">bind-address = 0.0.0.0</span><br><span class="line">port = 3306</span><br><span class="line">user = mysql</span><br><span class="line">default-storage-engine = InnoDB</span><br><span class="line">sql_mode = &quot;&quot;</span><br><span class="line">max_connections = 100</span><br><span class="line">character-set-server = utf8mb4</span><br><span class="line">collation-server = utf8mb4_general_ci</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">把上面代码复制进去-------------------------------</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">然后Esc退出编辑模式，输入:wq保存退出</span></span><br></pre></td></tr></table></figure>
-
-<p>然后，重新启动 MySQL 容器，应该可以正常启动了。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker restart mysql</span><br></pre></td></tr></table></figure>
-
-<p>现在再来进行 <code>docker ps</code>，可以看到运行成功了：<br><img src="/posts/632199233/6.png" alt="Alt text"></p>
-<h1 id="6-进入容器"><a href="#6-进入容器" class="headerlink" title="6.进入容器"></a>6.进入容器</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it mysql bash</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><strong>注意</strong>，上面的 mysql 替换成你自己的容器名，在图 6 中，容器名为 NAMUES 下的<code>mysql</code></p>
-</blockquote>
-<h1 id="7-登录-MySQL"><a href="#7-登录-MySQL" class="headerlink" title="7.登录 MySQL"></a>7.登录 MySQL</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p root123</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>这里的密码是我们创建容器的时候设置的，在第 4 步，忘记的可以去看第 4 步那个密码。</p>
-</blockquote>
-<h2 id="创建用户并开启远程登录"><a href="#创建用户并开启远程登录" class="headerlink" title="创建用户并开启远程登录"></a>创建用户并开启远程登录</h2><ul>
-<li>方法 1：给子用户开启所有数据库权限</li>
-</ul>
-<p>下面是创建用户并开启远程登录的命令：（请注意，如果你不想这个账号对所有的数据库都有权限，可以用另一种方法）</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建<span class="built_in">test</span>账号，密码为test123</span></span><br><span class="line">CREATE USER &#x27;test&#x27;@&#x27;%&#x27; IDENTIFIED BY &#x27;test123&#x27;;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">赋予<span class="built_in">test</span>用户对所有数据库的所有权限</span></span><br><span class="line">GRANT ALL PRIVILEGES ON *.* TO &#x27;test&#x27;@&#x27;%&#x27;;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">刷新权限</span></span><br><span class="line">FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>方法 2：给子用户开启部分数据库权限</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建<span class="built_in">test</span>账号，密码为test123</span></span><br><span class="line">CREATE USER &#x27;test&#x27;@&#x27;%&#x27; IDENTIFIED BY &#x27;test123&#x27;;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建sakila数据库并设置utf8mb4字符集</span></span><br><span class="line">CREATE DATABASE IF NOT EXISTS sakila DEFAULT CHARSET utf8mb4 COLLATE utf8mb4_general_ci;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">赋予<span class="built_in">test</span>用户对sakila数据库的所有权限</span></span><br><span class="line">GRANT ALL PRIVILEGES ON \`sakila\`.* TO &#x27;test&#x27;@&#x27;%&#x27;;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">刷新权限</span></span><br><span class="line">FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure>
-
-<h1 id="8-退出容器"><a href="#8-退出容器" class="headerlink" title="8.退出容器"></a>8.退出容器</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exit</span><br></pre></td></tr></table></figure>
-
-<h1 id="9-docker-常用命令"><a href="#9-docker-常用命令" class="headerlink" title="9.docker 常用命令"></a>9.docker 常用命令</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除容器(参数可以是容器名称或容器ID)</span></span><br><span class="line">docker rm mysql</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除镜像</span></span><br><span class="line">docker rmi mysql</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动容器</span></span><br><span class="line">docker start mysql</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动容器/重启容器</span></span><br><span class="line">docker restart mysql</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">停止容器</span></span><br><span class="line">docker stop mysql</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">进入容器</span></span><br><span class="line">docker exec -it mysql bash</span><br></pre></td></tr></table></figure>
-
-<h1 id="11-dockerfile"><a href="#11-dockerfile" class="headerlink" title="11.dockerfile"></a>11.dockerfile</h1><p>将上述正确的步骤总结为 dockerfile：</p>
-<p><strong>TODO</strong></p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> mysql:<span class="number">5.7</span></span><br></pre></td></tr></table></figure>
-
-                
-                <p class="end">__END__</p>
-            </div>
-            <div class="article-footer">
-                <div class="suffix-box">
-    <div class="suffix-box-left">
-        <img src="/image/sidebar/avatar.jpg" alt="王润通">
-    </div>
-    <div class="suffix-box-right">
-        <span class="suffix-box-title">文章作者：</span>王润通
-        <br>
-        <span class="suffix-box-title">文章出处：</span><a href="/posts/632199233/" target="_blank">docker安装mysql</a>
-        <br>
-        <span class="suffix-box-title">作者签名：</span>简单地活着, 肆意又精彩.
-        <br>
-        <span class="suffix-box-title">关于主题：</span><a href="https://github.com/first19326/Hexo-LiveForCode" target="_blank">Hexo - Live For Code</a>
-        <br>
-        <span class="suffix-box-title">版权声明：</span>文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
-        <br>
-    </div>
-    <div style="clear: both;"></div>
-</div>
-                
-                
-                <div class="article-prev-next">
-                    
-                        <a href="/posts/3803372939/" class="prev-prefix">« </a> 上一篇：    <a href="/posts/3803372939/" title="发布于 2023-10-28 07:42">docker运行jar包</a>
-                        <br>
+        
+            <!-- 归档页面、分类归档页面、标签归档页面 -->
+            <div class="articles">
+                <div class="articles-wrap">
+                    <span class="archive-move-on"></span>
+                    <span class="archive-counter">
+                        
+                            目前共计 12 篇日志，继续加油！
+                        
+                    </span>
                     
                     
-                        <a href="/posts/276316860/" class="next-prefix">» </a> 下一篇：    <a href="/posts/276316860/" title="发布于 2023-04-05 05:34">GO语言的一些特点</a>
+                        
+                            <div class="archive-title">
+                                <h2 class="archive-year">2023</h2>
+                            </div>
+                            
+                           
+                        <div class="article">
+                            <div class="article-header">
+                                <h1 class="article-title"><a href="/posts/3803372939/"><span>docker运行jar包</span></a></h1>
+                                <div class="article-meta">
+                                    <span class="article-time">10-28</span>
+                                </div>
+                            </div>
+                        </div>
                     
                 </div>
             </div>
             
-    <div class="article-comments">
         
-            <div class="comments-title">
-                评论列表
-            </div>
-        
-        <div class="comments-content"></div>
-    </div>
-
-        </div>
     
 </div>
     <div id="footer"></div>
@@ -210,7 +110,7 @@
                     
                         <li class=""><a href="/tag" class="" target="_self"><span class="iconfont icon-discount-fill"></span>标签</a></li>
                     
-                        <li class=""><a href="/archive" class="" target="_self"><span class="iconfont icon-calendar-fill"></span>归档</a></li>
+                        <li class=" active "><a href="/archive" class="" target="_self"><span class="iconfont icon-calendar-fill"></span>归档</a></li>
                     
                         <li class=""><a href="/donate" class="" target="_self"><span class="iconfont icon-heart-fill"></span>赞赏</a></li>
                     
