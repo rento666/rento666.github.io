@@ -108,8 +108,8 @@ theme: LiveForCode
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: 'git'
-  repo: git@gitee.com:aharentoy/tongshuo.git
-  branch: pages
+  repo: git@github.com:rento666/rento666.github.io.git
+  branch: main
 
 
 # abbrlink config
