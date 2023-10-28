@@ -8,7 +8,7 @@
     <meta http-equiv="Cache-Control" content="no-siteapp">
     <title>
         
-            hexo踩坑
+            go每日一题
         
     </title>
     <link rel="shortcut icon" href="#"/>
@@ -36,22 +36,26 @@
     <div class="vertical">
         <div class="inner">
             
-                <h1 class="header-subtitle">hexo踩坑</h1>
+                <h1 class="header-subtitle">go每日一题</h1>
                 <div class="header-subinfo">
                     <p class="article-info-text">
                         <span>
-                            <i class="iconfont icon-time"></i> 发表时间：2023-03-30
+                            <i class="iconfont icon-time"></i> 发表时间：2023-03-22
                         </span>
                         
-                            <span id="/posts/856201035" class="leancloud_visitors" data-flag-title="hexo踩坑">
+                            <span id="/posts/1042076231/" class="leancloud_visitors" data-flag-title="go每日一题">
                                 <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
                             </span>
                         
                         <span>
-                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/posts/856201035"></span>
+                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/posts/1042076231/"></span>
                         </span>  
                     </p>
                     
+                    
+                        
+                            <span class="tag-color">go面试题</span>
+                        
                     
                 </div>
             
@@ -65,10 +69,16 @@
         <div id="article">
             <div class="toc"></div>
             <div class="article-body">
-                <h1 id="1-修改头像"><a href="#1-修改头像" class="headerlink" title="1.修改头像"></a>1.修改头像</h1><blockquote>
-<p>费时：2 小时</p>
+                <blockquote>
+<p>这里写一些 GO 语言的题目。可能面试中会用到</p>
 </blockquote>
-<p>只在<code>./images/avatar.jpg</code> 文件中修改还不行，还要在<code>./themes/LiveForCode/source/images/avatar.jpg</code>文件中修改，否则修改无效。</p>
+<h1 id="1-闭包问题"><a href="#1-闭包问题" class="headerlink" title="1.闭包问题"></a>1.闭包问题</h1><blockquote>
+<p>原文链接：<a target="_blank" rel="noopener" href="https://studygolang.com/interview/question">https://studygolang.com/interview/question</a></p>
+</blockquote>
+<p>这是<a target="_blank" rel="noopener" href="https://studygolang.com/topics/13470">GO 语言爱好者周刊第 90 期</a>的一道题目。以下代码输出什么？</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line">import &quot;fmt&quot;</span><br><span class="line"></span><br><span class="line">func app() func(string) string &#123;</span><br><span class="line">	t := &quot;Hi&quot;</span><br><span class="line">	c := func(b string) string &#123;</span><br><span class="line">		t = t + &quot; &quot; + b</span><br><span class="line">		return t</span><br><span class="line">	&#125;</span><br><span class="line">	return c</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">	a := app()</span><br><span class="line">	b := app()</span><br><span class="line">	a(&quot;go&quot;)</span><br><span class="line">	fmt.Println(b(&quot;All&quot;))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>A：Hi All；B：Hi go All；C：Hi；D：go All</code></p>
 
                 
                 <p class="end">__END__</p>
@@ -81,7 +91,7 @@
     <div class="suffix-box-right">
         <span class="suffix-box-title">文章作者：</span>王润通
         <br>
-        <span class="suffix-box-title">文章出处：</span><a href="/posts/856201035" target="_blank">hexo踩坑</a>
+        <span class="suffix-box-title">文章出处：</span><a href="/posts/1042076231/" target="_blank">go每日一题</a>
         <br>
         <span class="suffix-box-title">作者签名：</span>简单地活着, 肆意又精彩.
         <br>
@@ -94,13 +104,20 @@
 </div>
                 
                 
+                    <div class="tag">
+                        标签：
+                        
+                            <a href="/tag/go%E9%9D%A2%E8%AF%95%E9%A2%98/">go面试题</a>
+                        
+                    </div>
+                
                 <div class="article-prev-next">
                     
-                        <a href="/posts/3219586390" class="prev-prefix">« </a> 上一篇：    <a href="/posts/3219586390" title="发布于 2023-04-05 12:36">linux安装docker</a>
+                        <a href="/posts/4099767755/" class="prev-prefix">« </a> 上一篇：    <a href="/posts/4099767755/" title="发布于 2023-03-28 06:21">docker快速入门</a>
                         <br>
                     
                     
-                        <a href="/posts/2353769058" class="next-prefix">» </a> 下一篇：    <a href="/posts/2353769058" title="发布于 2023-03-29 11:48">mysql多版本共存</a>
+                        <a href="/posts/3004992981/" class="next-prefix">» </a> 下一篇：    <a href="/posts/3004992981/" title="发布于 2023-03-21 06:24">算法-八皇后问题</a>
                     
                 </div>
             </div>

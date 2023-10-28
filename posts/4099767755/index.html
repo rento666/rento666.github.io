@@ -8,7 +8,7 @@
     <meta http-equiv="Cache-Control" content="no-siteapp">
     <title>
         
-            标签 - 打包部署注意事项
+            docker快速入门
         
     </title>
     <link rel="shortcut icon" href="#"/>
@@ -31,15 +31,32 @@
 <meta name="generator" content="Hexo 6.3.0"></head>
 <body>
     <a id="cover"></a>
-    <link type="text/css" rel="stylesheet" href="/css/archive.css">
+    <link type="text/css" rel="stylesheet" href="/css/post.css">
 <div id="header" class="header">
     <div class="vertical">
         <div class="inner">
             
-                <h1 class="header-subtitle">标签归档</h1>
+                <h1 class="header-subtitle">docker快速入门</h1>
                 <div class="header-subinfo">
-                    <p class="article-info-text Chinese"></p>
-                    <p class="article-info-text English"></p>                  
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2023-03-28
+                        </span>
+                        
+                            <span id="/posts/4099767755/" class="leancloud_visitors" data-flag-title="docker快速入门">
+                                <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                            </span>
+                        
+                        <span>
+                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/posts/4099767755/"></span>
+                        </span>  
+                    </p>
+                    
+                    
+                        
+                            <span class="tag-color">docker</span>
+                        
+                    
                 </div>
             
         </div>
@@ -48,37 +65,160 @@
 </div>
 <div id="container">
     
-        
-            <!-- 归档页面、分类归档页面、标签归档页面 -->
-            <div class="articles">
-                <div class="articles-wrap">
-                    <span class="archive-move-on"></span>
-                    <span class="archive-counter">
+        <!-- 文章页面 -->
+        <div id="article">
+            <div class="toc"></div>
+            <div class="article-body">
+                <hr>
+<blockquote>
+<p>参考资料：<a target="_blank" rel="noopener" href="https://docker.easydoc.net/">Docker 快速入门</a></p>
+</blockquote>
+<hr>
+<h1 id="安装-docker"><a href="#安装-docker" class="headerlink" title="安装 docker"></a>安装 docker</h1><ul>
+<li>安装 docker desktop</li>
+</ul>
+<blockquote>
+<p>系统版本：win11 家庭版（2023-03-28 最新版）</p>
+</blockquote>
+<p>我这里安装的是 Windows 版本的 docker，这是链接:<br><a target="_blank" rel="noopener" href="https://www.docker.com/products/docker-desktop/">https://www.docker.com/products/docker-desktop/</a><br>有时候打不开这个网站，所以我把文件传到了百度网盘上，这是链接：<br><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1onewNBdGbkT37VLfMhADxg">链接：https://pan.baidu.com/s/1onewNBdGbkT37VLfMhADxg 提取码：rent</a>.</p>
+<p>这里先安装[Docker Desktop Installer.exe]，另一个文件稍后会用到。</p>
+<p>默认下一步直到安装完成，然后打开[控制面板]、点击[程序]、点击[启用或关闭 Windows 功能]、将[Windows 虚拟机监控程序平台]和[适用于 Linux 的 Windows 子系统]打勾，然后点击确定，等待安装完成，之后根据提示重启电脑。</p>
+<p>打开 docker desktop，可能有报错，我这里提示这个：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Installing, this may take a few minutes… WslRegisterDistribution</span><br><span class="line">failed with error: 0x800701bc Error: 0x800701bc WSL 2 ???</span><br><span class="line">https://aka.ms/wsl2kernel</span><br><span class="line"></span><br><span class="line">Press any key to continue…</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>更新 wsl2</li>
+</ul>
+<p>这时候安装我们百度网盘中的第二个文件[wsl_update_x64.msi]，（这个文件也可以在微软官方下载，链接：<a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package">https://learn.microsoft.com/zh-cn/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package</a>）。安装完成之后再打开 docker desktop，应该就不会报错了。</p>
+<ul>
+<li>管理员身份运行命令</li>
+</ul>
+<p>然后<strong>以管理员身份</strong>运行 cmd(PowerShell)黑窗口，运行如下命令，将 WSL 2 设置为默认版本：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --set-default-version 2</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>安装 Linux 系统</li>
+</ul>
+<p>方式一：命令行安装 Linux 内核 <code>wsl.exe --install -d Ubuntu</code></p>
+<p>方式二：打开 Microsoft Store，搜索 Ubuntu，安装。（也可以选择 Centos 等版本，这里我安装的是 Ubuntu）。</p>
+<blockquote>
+<p>上面命令很可能你安装不了，微软商店你也可能打不开，如果遇到这个问题，参考：<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42220935/article/details/104714114">https://blog.csdn.net/qq_42220935/article/details/104714114</a></p>
+</blockquote>
+<p>首次启动新安装的 Linux 分发版时，将打开一个控制台窗口，系统会要求你等待一分钟或两分钟，以便文件解压缩并存储到电脑上。 未来的所有启动时间应不到一秒。</p>
+<p>然后，需要为新的 Linux 分发版创建用户帐户和密码。</p>
+<p><img src="/posts/4099767755/ubuntuinstall.png"></p>
+<p><strong>输入密码时不会显示输入的个数！！！</strong></p>
+<ul>
+<li>设置开机启动 Hypervisor</li>
+</ul>
+<p><code>bcdedit /set hypervisorlaunchtype auto</code></p>
+<blockquote>
+<p>注意要用管理员权限打开 PowerShell</p>
+</blockquote>
+<ul>
+<li>确保 BIOS 已开启虚拟化</li>
+</ul>
+<p>可通过任务管理器查看是否已启用虚拟化：<br><img src="/posts/4099767755/kvaf7ody.png"></p>
+<ul>
+<li>修改镜像加速源</li>
+</ul>
+<p><code>&quot;registry-mirrors&quot;: [&quot;https://registry.docker-cn.com&quot;]</code></p>
+<p>打开 docker desktop，打开设置，选择 Docker Engine，在文本框中新增上述代码，如下图：</p>
+<p><img src="/posts/4099767755/l25jdwrn.png"></p>
+<h1 id="Docker-安装-Redis"><a href="#Docker-安装-Redis" class="headerlink" title="Docker 安装 Redis"></a>Docker 安装 Redis</h1><p>Redis 官网：<a target="_blank" rel="noopener" href="https://redis.io/">https://redis.io/</a></p>
+<blockquote>
+<p>官网下载安装教程只有源码安装方式，没有 Windows 版本。想要自己安装 windows 版本需要去找别人编译好的安装包。</p>
+</blockquote>
+<p>Docker 官方镜像仓库查找 Redis ：<a target="_blank" rel="noopener" href="https://hub.docker.com/">https://hub.docker.com/</a></p>
+<p>一个命令跑起来：<code>docker run -d -p 6379:6379 --name redis redis:5.0</code></p>
+<p>在 PowerShell 运行这个命令，就会去镜像仓库获取 redis。</p>
+<p><code>redis:latest</code> 表示 redis 最新版。<strong>一般生产环境不用最新版，最好指定一个版本，如 redis5.0 版本</strong></p>
+<ul>
+<li>命令解释</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">docker run</td>
+<td align="center">docker 运行一个“软件”</td>
+</tr>
+<tr>
+<td align="center">-d</td>
+<td align="center">后台运行</td>
+</tr>
+<tr>
+<td align="center">-p</td>
+<td align="center">端口暴露，把容器里边的 6379 暴露到宿主机</td>
+</tr>
+<tr>
+<td align="center">–name</td>
+<td align="center">给容器命名 redis</td>
+</tr>
+<tr>
+<td align="center">redis:5.0</td>
+<td align="center">这个软件源（redis，5.0 版本）</td>
+</tr>
+</tbody></table>
+<p><code>docker run</code> 是 docker 运行一个“软件”；<code>-d</code> 表示后台运行</p>
+<p>命令参考：<a target="_blank" rel="noopener" href="https://docs.docker.com/engine/reference/commandline/run/">https://docs.docker.com/engine/reference/commandline/run/</a></p>
+
+                
+                <p class="end">__END__</p>
+            </div>
+            <div class="article-footer">
+                <div class="suffix-box">
+    <div class="suffix-box-left">
+        <img src="/image/sidebar/avatar.jpg" alt="王润通">
+    </div>
+    <div class="suffix-box-right">
+        <span class="suffix-box-title">文章作者：</span>王润通
+        <br>
+        <span class="suffix-box-title">文章出处：</span><a href="/posts/4099767755/" target="_blank">docker快速入门</a>
+        <br>
+        <span class="suffix-box-title">作者签名：</span>简单地活着, 肆意又精彩.
+        <br>
+        <span class="suffix-box-title">关于主题：</span><a href="https://github.com/first19326/Hexo-LiveForCode" target="_blank">Hexo - Live For Code</a>
+        <br>
+        <span class="suffix-box-title">版权声明：</span>文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+        <br>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+                
+                
+                    <div class="tag">
+                        标签：
                         
-                            当前标签：<span class="tag">打包部署注意事项</span>
+                            <a href="/tag/docker/">docker</a>
                         
-                    </span>
+                    </div>
+                
+                <div class="article-prev-next">
+                    
+                        <a href="/posts/2353769058/" class="prev-prefix">« </a> 上一篇：    <a href="/posts/2353769058/" title="发布于 2023-03-29 11:48">mysql多版本共存</a>
+                        <br>
                     
                     
-                        
-                            <div class="archive-title">
-                                <h2 class="archive-year">2023</h2>
-                            </div>
-                            
-                           
-                        <div class="article">
-                            <div class="article-header">
-                                <h1 class="article-title"><a href="/posts/3646782985/"><span>我的第一篇博客</span></a></h1>
-                                <div class="article-meta">
-                                    <span class="article-time">03-13</span>
-                                </div>
-                            </div>
-                        </div>
+                        <a href="/posts/1042076231/" class="next-prefix">» </a> 下一篇：    <a href="/posts/1042076231/" title="发布于 2023-03-22 08:57">go每日一题</a>
                     
                 </div>
             </div>
             
+    <div class="article-comments">
         
+            <div class="comments-title">
+                评论列表
+            </div>
+        
+        <div class="comments-content"></div>
+    </div>
+
+        </div>
     
 </div>
     <div id="footer"></div>

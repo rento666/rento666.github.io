@@ -8,7 +8,7 @@
     <meta http-equiv="Cache-Control" content="no-siteapp">
     <title>
         
-            标签 - 打包部署注意事项
+            算法-八皇后问题
         
     </title>
     <link rel="shortcut icon" href="#"/>
@@ -31,15 +31,32 @@
 <meta name="generator" content="Hexo 6.3.0"></head>
 <body>
     <a id="cover"></a>
-    <link type="text/css" rel="stylesheet" href="/css/archive.css">
+    <link type="text/css" rel="stylesheet" href="/css/post.css">
 <div id="header" class="header">
     <div class="vertical">
         <div class="inner">
             
-                <h1 class="header-subtitle">标签归档</h1>
+                <h1 class="header-subtitle">算法-八皇后问题</h1>
                 <div class="header-subinfo">
-                    <p class="article-info-text Chinese"></p>
-                    <p class="article-info-text English"></p>                  
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2023-03-21
+                        </span>
+                        
+                            <span id="/posts/3004992981/" class="leancloud_visitors" data-flag-title="算法-八皇后问题">
+                                <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                            </span>
+                        
+                        <span>
+                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/posts/3004992981/"></span>
+                        </span>  
+                    </p>
+                    
+                    
+                        
+                            <span class="tag-color">数据结构</span>
+                        
+                    
                 </div>
             
         </div>
@@ -48,37 +65,72 @@
 </div>
 <div id="container">
     
-        
-            <!-- 归档页面、分类归档页面、标签归档页面 -->
-            <div class="articles">
-                <div class="articles-wrap">
-                    <span class="archive-move-on"></span>
-                    <span class="archive-counter">
+        <!-- 文章页面 -->
+        <div id="article">
+            <div class="toc"></div>
+            <div class="article-body">
+                <blockquote>
+<p>由于最近课程需要提交“八皇后”代码，特此写下此博客，来做一下关于八皇后的总结。</p>
+</blockquote>
+<h2 id="八皇后问题"><a href="#八皇后问题" class="headerlink" title="八皇后问题"></a>八皇后问题</h2><p>八皇后问题，即在一个 8x8 的棋盘上，放置 8 个皇后棋子，其中每个皇后都不能处于同一条横行、纵行上，也不能处于同一条斜线上。</p>
+<h2 id="参考视频"><a href="#参考视频" class="headerlink" title="参考视频"></a>参考视频</h2><p>在编程过程中，我感觉有些视频讲的很好，这里分享出来：</p>
+<p>参考视频：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1wJ411U7Gy/?share_source=copy_web&vd_source=1068a5fa51e306b8564255b5bf628111">懒猫老师-C 语言-递归函数-八皇后问题(搜索，回溯)</a></p>
+<h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><p>这里的代码用的语言是 ToyPL，是吴老师自己手写的玩具语言，里面没有 for，所以用 while 来代替了。（语法简单，不用特意解释就能看懂）</p>
+<p>特别说明：由于语言特性，在全局只能声明数组变量，所以下方的 count 为数组。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line">// 第row行皇后所占位置的列号</span><br><span class="line">int queen[8]</span><br><span class="line">// 标志数组，表示第col列是否可用，默认为true（可用）</span><br><span class="line">bool flag[8]</span><br><span class="line">// 表示上对角线是否可用</span><br><span class="line">bool d1[15]</span><br><span class="line">// 表示下对角线是否可用</span><br><span class="line">bool d2[15]</span><br><span class="line">// 解法个数(八皇后有92个解)</span><br><span class="line">int count[2]</span><br><span class="line">fun main()</span><br><span class="line">&#123;</span><br><span class="line">  init()</span><br><span class="line">  generate(0)</span><br><span class="line">  print(&quot;共有&quot;+count[1]+&quot;种解法\n&quot;)</span><br><span class="line">&#125;</span><br><span class="line">fun init()</span><br><span class="line">&#123;</span><br><span class="line">  // 初始化数组</span><br><span class="line">  int i=0</span><br><span class="line">  while(i&lt;8)</span><br><span class="line">  &#123;</span><br><span class="line">    queen[i]=-1</span><br><span class="line">    flag[i]=true</span><br><span class="line">    i=i+1</span><br><span class="line">  &#125;</span><br><span class="line">  i=0</span><br><span class="line">  while(i&lt;15)</span><br><span class="line">  &#123;</span><br><span class="line">    d1[i]=true</span><br><span class="line">    d2[i]=true</span><br><span class="line">    i=i+1</span><br><span class="line">  &#125;</span><br><span class="line">  count[1] = 0</span><br><span class="line">  print(&quot;初始化成功...\n&quot;)</span><br><span class="line">&#125;</span><br><span class="line">fun generate(int n)</span><br><span class="line">&#123;</span><br><span class="line">  int col = 0</span><br><span class="line">  // 每个皇后都有8列</span><br><span class="line">  while(col&lt;8)</span><br><span class="line">  &#123;</span><br><span class="line">    // 判断位置是否可用</span><br><span class="line">    if(flag[col]&amp;d1[n-col+7]&amp;d2[n+col])</span><br><span class="line">    &#123;</span><br><span class="line">      // 在n行col列摆放皇后</span><br><span class="line">      queen[n]=col</span><br><span class="line">      // 设置第col列不可用</span><br><span class="line">      flag[col]=false</span><br><span class="line">      // 设置两个对角线不可用</span><br><span class="line">      d1[n-col+7]=false</span><br><span class="line">      d2[n+col]=false</span><br><span class="line">      // 8个皇后没有摆完，递归摆放下一行里面的皇后</span><br><span class="line">      if(n&lt;7)</span><br><span class="line">      &#123;</span><br><span class="line">        generate(n+1)</span><br><span class="line">      &#125;else</span><br><span class="line">      &#123;</span><br><span class="line">        // 皇后都放完了，打印结果</span><br><span class="line">        printQ()</span><br><span class="line">      &#125;</span><br><span class="line">      //回溯，考虑其他的可行方案</span><br><span class="line">      flag[col]=true</span><br><span class="line">      d1[n-col+7]=true</span><br><span class="line">      d2[n+col]=true</span><br><span class="line">    &#125;</span><br><span class="line">    col=col+1</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">fun printQ()</span><br><span class="line">&#123;</span><br><span class="line">  count[1]=count[1]+1</span><br><span class="line">  print(&quot;第&quot;+count[1]+&quot;个解法：&quot;)</span><br><span class="line">  int i=0</span><br><span class="line">  while(i&lt;8)</span><br><span class="line">  &#123;</span><br><span class="line">    print(queen[i] + &quot;  &quot;)</span><br><span class="line">    i=i+1</span><br><span class="line">  &#125;</span><br><span class="line">  print(&quot;\n&quot;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+                
+                <p class="end">__END__</p>
+            </div>
+            <div class="article-footer">
+                <div class="suffix-box">
+    <div class="suffix-box-left">
+        <img src="/image/sidebar/avatar.jpg" alt="王润通">
+    </div>
+    <div class="suffix-box-right">
+        <span class="suffix-box-title">文章作者：</span>王润通
+        <br>
+        <span class="suffix-box-title">文章出处：</span><a href="/posts/3004992981/" target="_blank">算法-八皇后问题</a>
+        <br>
+        <span class="suffix-box-title">作者签名：</span>简单地活着, 肆意又精彩.
+        <br>
+        <span class="suffix-box-title">关于主题：</span><a href="https://github.com/first19326/Hexo-LiveForCode" target="_blank">Hexo - Live For Code</a>
+        <br>
+        <span class="suffix-box-title">版权声明：</span>文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+        <br>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+                
+                
+                    <div class="tag">
+                        标签：
                         
-                            当前标签：<span class="tag">打包部署注意事项</span>
+                            <a href="/tag/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
                         
-                    </span>
+                    </div>
+                
+                <div class="article-prev-next">
+                    
+                        <a href="/posts/1042076231/" class="prev-prefix">« </a> 上一篇：    <a href="/posts/1042076231/" title="发布于 2023-03-22 08:57">go每日一题</a>
+                        <br>
                     
                     
-                        
-                            <div class="archive-title">
-                                <h2 class="archive-year">2023</h2>
-                            </div>
-                            
-                           
-                        <div class="article">
-                            <div class="article-header">
-                                <h1 class="article-title"><a href="/posts/3646782985/"><span>我的第一篇博客</span></a></h1>
-                                <div class="article-meta">
-                                    <span class="article-time">03-13</span>
-                                </div>
-                            </div>
-                        </div>
+                        <a href="/posts/2690146659/" class="next-prefix">» </a> 下一篇：    <a href="/posts/2690146659/" title="发布于 2023-03-14 08:17">git入门知识</a>
                     
                 </div>
             </div>
             
+    <div class="article-comments">
         
+            <div class="comments-title">
+                评论列表
+            </div>
+        
+        <div class="comments-content"></div>
+    </div>
+
+        </div>
     
 </div>
     <div id="footer"></div>

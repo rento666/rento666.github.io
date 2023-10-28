@@ -8,7 +8,7 @@
     <meta http-equiv="Cache-Control" content="no-siteapp">
     <title>
         
-            算法-八皇后问题
+            mysql多版本共存
         
     </title>
     <link rel="shortcut icon" href="#"/>
@@ -36,25 +36,25 @@
     <div class="vertical">
         <div class="inner">
             
-                <h1 class="header-subtitle">算法-八皇后问题</h1>
+                <h1 class="header-subtitle">mysql多版本共存</h1>
                 <div class="header-subinfo">
                     <p class="article-info-text">
                         <span>
-                            <i class="iconfont icon-time"></i> 发表时间：2023-03-21
+                            <i class="iconfont icon-time"></i> 发表时间：2023-03-29
                         </span>
                         
-                            <span id="/posts/3004992981" class="leancloud_visitors" data-flag-title="算法-八皇后问题">
+                            <span id="/posts/2353769058/" class="leancloud_visitors" data-flag-title="mysql多版本共存">
                                 <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
                             </span>
                         
                         <span>
-                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/posts/3004992981"></span>
+                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/posts/2353769058/"></span>
                         </span>  
                     </p>
                     
                     
                         
-                            <span class="tag-color">数据结构</span>
+                            <span class="tag-color">MySQL安装</span>
                         
                     
                 </div>
@@ -70,14 +70,81 @@
             <div class="toc"></div>
             <div class="article-body">
                 <blockquote>
-<p>由于最近课程需要提交“八皇后”代码，特此写下此博客，来做一下关于八皇后的总结。</p>
+<p>记录一下同时安装、运行 Mysql5.7 以及 8.0 版本。</p>
 </blockquote>
-<h2 id="八皇后问题"><a href="#八皇后问题" class="headerlink" title="八皇后问题"></a>八皇后问题</h2><p>八皇后问题，即在一个 8x8 的棋盘上，放置 8 个皇后棋子，其中每个皇后都不能处于同一条横行、纵行上，也不能处于同一条斜线上。</p>
-<h2 id="参考视频"><a href="#参考视频" class="headerlink" title="参考视频"></a>参考视频</h2><p>在编程过程中，我感觉有些视频讲的很好，这里分享出来：</p>
-<p>参考视频：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1wJ411U7Gy/?share_source=copy_web&vd_source=1068a5fa51e306b8564255b5bf628111">懒猫老师-C 语言-递归函数-八皇后问题(搜索，回溯)</a></p>
-<h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><p>这里的代码用的语言是 ToyPL，是吴老师自己手写的玩具语言，里面没有 for，所以用 while 来代替了。（语法简单，不用特意解释就能看懂）</p>
-<p>特别说明：由于语言特性，在全局只能声明数组变量，所以下方的 count 为数组。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line">// 第row行皇后所占位置的列号</span><br><span class="line">int queen[8]</span><br><span class="line">// 标志数组，表示第col列是否可用，默认为true（可用）</span><br><span class="line">bool flag[8]</span><br><span class="line">// 表示上对角线是否可用</span><br><span class="line">bool d1[15]</span><br><span class="line">// 表示下对角线是否可用</span><br><span class="line">bool d2[15]</span><br><span class="line">// 解法个数(八皇后有92个解)</span><br><span class="line">int count[2]</span><br><span class="line">fun main()</span><br><span class="line">&#123;</span><br><span class="line">  init()</span><br><span class="line">  generate(0)</span><br><span class="line">  print(&quot;共有&quot;+count[1]+&quot;种解法\n&quot;)</span><br><span class="line">&#125;</span><br><span class="line">fun init()</span><br><span class="line">&#123;</span><br><span class="line">  // 初始化数组</span><br><span class="line">  int i=0</span><br><span class="line">  while(i&lt;8)</span><br><span class="line">  &#123;</span><br><span class="line">    queen[i]=-1</span><br><span class="line">    flag[i]=true</span><br><span class="line">    i=i+1</span><br><span class="line">  &#125;</span><br><span class="line">  i=0</span><br><span class="line">  while(i&lt;15)</span><br><span class="line">  &#123;</span><br><span class="line">    d1[i]=true</span><br><span class="line">    d2[i]=true</span><br><span class="line">    i=i+1</span><br><span class="line">  &#125;</span><br><span class="line">  count[1] = 0</span><br><span class="line">  print(&quot;初始化成功...\n&quot;)</span><br><span class="line">&#125;</span><br><span class="line">fun generate(int n)</span><br><span class="line">&#123;</span><br><span class="line">  int col = 0</span><br><span class="line">  // 每个皇后都有8列</span><br><span class="line">  while(col&lt;8)</span><br><span class="line">  &#123;</span><br><span class="line">    // 判断位置是否可用</span><br><span class="line">    if(flag[col]&amp;d1[n-col+7]&amp;d2[n+col])</span><br><span class="line">    &#123;</span><br><span class="line">      // 在n行col列摆放皇后</span><br><span class="line">      queen[n]=col</span><br><span class="line">      // 设置第col列不可用</span><br><span class="line">      flag[col]=false</span><br><span class="line">      // 设置两个对角线不可用</span><br><span class="line">      d1[n-col+7]=false</span><br><span class="line">      d2[n+col]=false</span><br><span class="line">      // 8个皇后没有摆完，递归摆放下一行里面的皇后</span><br><span class="line">      if(n&lt;7)</span><br><span class="line">      &#123;</span><br><span class="line">        generate(n+1)</span><br><span class="line">      &#125;else</span><br><span class="line">      &#123;</span><br><span class="line">        // 皇后都放完了，打印结果</span><br><span class="line">        printQ()</span><br><span class="line">      &#125;</span><br><span class="line">      //回溯，考虑其他的可行方案</span><br><span class="line">      flag[col]=true</span><br><span class="line">      d1[n-col+7]=true</span><br><span class="line">      d2[n+col]=true</span><br><span class="line">    &#125;</span><br><span class="line">    col=col+1</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">fun printQ()</span><br><span class="line">&#123;</span><br><span class="line">  count[1]=count[1]+1</span><br><span class="line">  print(&quot;第&quot;+count[1]+&quot;个解法：&quot;)</span><br><span class="line">  int i=0</span><br><span class="line">  while(i&lt;8)</span><br><span class="line">  &#123;</span><br><span class="line">    print(queen[i] + &quot;  &quot;)</span><br><span class="line">    i=i+1</span><br><span class="line">  &#125;</span><br><span class="line">  print(&quot;\n&quot;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="MySql-服务多版本同时运行"><a href="#MySql-服务多版本同时运行" class="headerlink" title="MySql 服务多版本同时运行"></a>MySql 服务多版本同时运行</h1><h2 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件"></a>前提条件</h2><ul>
+<li>下载 MySql8.0</li>
+</ul>
+<p>我已经安装了一个 MySQL 版本（5.7），它占据了 3306 端口。</p>
+<p>此时由于课程需要，我需要下载 8.0 版本，而我又不想卸载 5.7 版本，所以需要如下操作：</p>
+<p>先下载 8.0 版本，官网链接：<a target="_blank" rel="noopener" href="https://dev.mysql.com/downloads/mysql/">https://dev.mysql.com/downloads/mysql/</a>.</p>
+<p>下载好后，把这个版本的（8.0）解压到同一个目录下，例如：<br><code>D:\MySql\mysql-5.7.39-winx64</code><br><code>D:\MySql\mysql-8.0.32-winx64</code></p>
+<ul>
+<li>配置环境变量</li>
+</ul>
+<p>复制 bin 目录的地址，新增到系统变量 path 中，这一步是为了到时能够直接在命令行中启动 mysql 服务，而不需要再次切换到 bin 目录下进行启动。</p>
+<p><img src="/posts/2353769058/1.png"></p>
+<p><img src="/posts/2353769058/2.png"></p>
+<blockquote>
+<p>注意: 上图中，需要将 MySQL8.0 版本的路径<strong>移动到</strong>MySQL5.7 版本<strong>之上</strong>，也就是说，需要把新安装的版本的路径放到旧版本之上。<br>因为我这次安装的新版本是 8.0，所以 8.0 版本的路径要在 5.7 之上。（这关系到下面的初始化操作）</p>
+</blockquote>
+<ul>
+<li>创建 my.ini 文件</li>
+</ul>
+<p>在与 bin 目录平级下创建一个配置文件，名称为 my，后缀为 ini，如图：</p>
+<p><img src="/posts/2353769058/3.png"></p>
+<p><strong>my.ini</strong>文件内容如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[mysql]</span><br><span class="line">default-character-set=utf8</span><br><span class="line">[mysqld]</span><br><span class="line">port = 3307</span><br><span class="line">basedir = D:\ProgrammingLanguage\Mysql8.0</span><br><span class="line">datadir = D:\ProgrammingLanguage\Mysql8.0\data</span><br><span class="line">max_connections=200</span><br><span class="line">character-set-server=utf8</span><br><span class="line">default-storage-engine=INNODB</span><br><span class="line">sql-mode=&quot;STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION&quot;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>其中 <strong>port</strong> 为 mysql8.0 的端口号，因为 3306 被 5.7 占用，所以需要指定 8.0 的端口号.<br><strong>basedir</strong> 为 mysql8.0 的数据库路径，这个需要<strong>根据自己的路径设置</strong>！！<br><strong>datadir</strong> 为 mysql8.0 的数据文件路径，这个与<strong>basedir</strong>一样，都需要改成自己的路径。<br>其他的不需要修改。</p>
+</blockquote>
+<ul>
+<li>停止 MySQL 服务</li>
+</ul>
+<p>先将 5.7 的 MySQL 服务停掉，如下图(先别管图中的 MYSQL8)：</p>
+<p><img src="/posts/2353769058/5.png"></p>
+<ul>
+<li>生成 data 文件夹</li>
+</ul>
+<p>解压后的 mysql-8.0.32-winx64 下面没有 data 文件夹，这个需要我们自己创建.</p>
+<p>创建之前需要先到 8.0 的 bin 目录下，通过管理员身份运行 cmd 或者 power shell，执行<code>mysqld --version</code>，观察 mysql 版本是否为 8.0，若为 8.0，则可以执行下面的语句；若不是 8.0，则说明之前的设置为错误的，需要按步骤来设置。</p>
+<p>创建 data 的命令如下：</p>
+<p><code>mysqld --initialize</code></p>
+<p>执行完上述命令后，会生成 data 文件夹，里面有诸多文件，我们目前只需要在乎里面一个.err 文件，里面存放着 mysql 的初始密码，例如：</p>
+<p><img src="/posts/2353769058/4.png"></p>
+<p>之后我们需要靠这个密码进行这个版本数据库的第一次登录，所以需要复制它。</p>
+<ul>
+<li>创建 MySQL8 服务</li>
+</ul>
+<p>继续在 8.0 的 bin 目录下，执行如下命令：</p>
+<p><code>mysqld install mysql8</code></p>
+<p>按下键盘的<code>win</code> + <code>R</code> 键，输入<code>regedit</code>，回车，进入注册表页面，路径为：<code>计算机\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services</code>，寻找有没有 <code>MySQL8</code>。</p>
+<p>如果没有，则创建一个项，名为 MySQL8，然后根据已存在的 MySQL 进行新建具体内容。</p>
+<p>如果有，则将<code>ImagePath</code>修改为<code>D:\ProgrammingLanguage\Mysql8.0\bin\mysqld.exe MySQL</code>。（这个路径按自己的路径来，我这里只是个例子）</p>
+<blockquote>
+<p>特别注意： ImagePath 最后的 mysqld.exe MySQL 不能改动！！！</p>
+</blockquote>
+<ul>
+<li>启动 MySQL 服务</li>
+</ul>
+<p>以管理员身份打开 cmd 或者 power shell，执行<code>net start mysql</code> 、 <code>net start mysql8</code>，若两者均显示服务开启成功，则说明已经完成了九成九。</p>
+<p>接下来我们来把 8.0 的 MySQL 重置密码。</p>
+<ul>
+<li>修改初始密码</li>
+</ul>
+<p>还记得我们之前复制的密码吗？</p>
+<p>在 data 文件夹中，<code>.err</code> 为文件后缀名的文件，打开后复制初始的密码(详见“生成 data 文件夹”步骤)</p>
+<p>之后在黑窗口执行如下命令：<br><code>mysql -u root -P 3307 -p</code><br>这时候会让我们输入密码，我们复制进去，回车，即可登录成功。</p>
+<blockquote>
+<p>注意，一定要记得指定端口例如-P3307，不然到时启动的就是默认情况下(5.7)的 mysql 版本</p>
+</blockquote>
+<p>依次执行如下命令:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 修改加密规则</span><br><span class="line">ALTER USER&#x27;root&#x27;@&#x27;localhost&#x27; IDENTIFIED BY &#x27;root&#x27; PASSWORD EXPIRE NEVER;</span><br><span class="line"># 更新一下用户的密码</span><br><span class="line">ALTER USER&#x27;root&#x27;@&#x27;localhost&#x27; IDENTIFIED WITH mysql_native_password BY &#x27;root&#x27;;</span><br><span class="line"># 刷新权限</span><br><span class="line">FLUSH PRIVILEGES;</span><br><span class="line"># 重置密码</span><br><span class="line">alter user&#x27;root&#x27;@&#x27;localhost&#x27; identified by &#x27;你要设置的密码&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>然后我们就大功告成了。</p>
+<hr>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p><code>mysql -u 用户名 -P 端口号 -p 密码</code> 此命令来连接不同版本的数据库！</p>
 
                 
                 <p class="end">__END__</p>
@@ -90,7 +157,7 @@
     <div class="suffix-box-right">
         <span class="suffix-box-title">文章作者：</span>王润通
         <br>
-        <span class="suffix-box-title">文章出处：</span><a href="/posts/3004992981" target="_blank">算法-八皇后问题</a>
+        <span class="suffix-box-title">文章出处：</span><a href="/posts/2353769058/" target="_blank">mysql多版本共存</a>
         <br>
         <span class="suffix-box-title">作者签名：</span>简单地活着, 肆意又精彩.
         <br>
@@ -106,17 +173,17 @@
                     <div class="tag">
                         标签：
                         
-                            <a href="/tag/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+                            <a href="/tag/MySQL%E5%AE%89%E8%A3%85/">MySQL安装</a>
                         
                     </div>
                 
                 <div class="article-prev-next">
                     
-                        <a href="/posts/1042076231" class="prev-prefix">« </a> 上一篇：    <a href="/posts/1042076231" title="发布于 2023-03-22 08:57">go每日一题</a>
+                        <a href="/posts/856201035/" class="prev-prefix">« </a> 上一篇：    <a href="/posts/856201035/" title="发布于 2023-03-30 02:09">hexo踩坑</a>
                         <br>
                     
                     
-                        <a href="/posts/2690146659" class="next-prefix">» </a> 下一篇：    <a href="/posts/2690146659" title="发布于 2023-03-14 08:17">git入门知识</a>
+                        <a href="/posts/4099767755/" class="next-prefix">» </a> 下一篇：    <a href="/posts/4099767755/" title="发布于 2023-03-28 06:21">docker快速入门</a>
                     
                 </div>
             </div>
