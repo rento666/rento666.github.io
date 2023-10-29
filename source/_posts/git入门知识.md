@@ -2,7 +2,7 @@
 title: git入门知识
 abbrlink: 2690146659
 date: 2023-03-14 20:17:39
-tags:
+tags: git
 ---
 
 # git 基础入门

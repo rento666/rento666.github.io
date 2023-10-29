@@ -2,7 +2,7 @@
 title: linux安装docker
 abbrlink: 3219586390
 date: 2023-04-05 12:36:44
-tags:
+tags: docker
 ---
 
 # Docker 的安装

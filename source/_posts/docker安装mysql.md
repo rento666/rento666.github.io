@@ -2,7 +2,7 @@
 title: docker安装mysql
 abbrlink: 632199233
 date: 2023-04-06 15:35:20
-tags:
+tags: docker
 ---
 
 > 在学习了上一节[linux 安装 docker](https://rento666.github.io/posts/3219586390)后，这一节我们来学习如何在 docker 中安装 MySQL

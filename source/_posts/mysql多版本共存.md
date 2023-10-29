@@ -1,6 +1,6 @@
 ---
 title: mysql多版本共存
-tags: MySQL安装
+tags: MySQL
 abbrlink: 2353769058
 date: 2023-03-29 23:48:05
 ---

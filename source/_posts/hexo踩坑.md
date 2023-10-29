@@ -2,7 +2,7 @@
 title: hexo踩坑
 abbrlink: 856201035
 date: 2023-03-30 14:09:07
-tags:
+tags: hexo
 ---
 
 # 1.修改头像

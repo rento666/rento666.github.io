@@ -2,7 +2,7 @@
 title: GO语言的一些特点
 abbrlink: 276316860
 date: 2023-04-05 17:34:12
-tags:
+tags: Go
 ---
 
 > golang 学习文档 [文档官网](https://golang.halfiisland.com/guide.html)

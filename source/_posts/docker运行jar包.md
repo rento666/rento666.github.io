@@ -1,7 +1,8 @@
 ---
 title: docker运行jar包
-date: 2023-10-28 19:42:19
-tags:
+abbrlink: 3803372939
+date: 2023-04-07 19:42:19
+tags: docker
 ---
 
 # 1.编写 Dockerfile 文件
@@ -35,4 +36,14 @@ EXPOSE 8080
 
 > 不要忘记去防火墙开启 8080 端口~
 
-![Alt text](image-1.png)
+![Alt text](1.png)
+
+# 2. 修改项目后的操作
+
+后期项目修改后，重新上传 jar 包，然后终端执行
+
+```shell
+# 先删除容器 docker rm [names]
+# 最后在终端构建：docker build -t rt-chat:v1 .
+# 启动容器：docker run -d -p 8080:8080 rt-chat:v1
+```

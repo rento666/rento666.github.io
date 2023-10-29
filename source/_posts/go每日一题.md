@@ -1,6 +1,6 @@
 ---
 title: go每日一题
-tags: go面试题
+tags: Go
 abbrlink: 1042076231
 date: 2023-03-22 20:57:05
 ---
