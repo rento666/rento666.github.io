@@ -1,7 +1,8 @@
 ---
 title: github技巧
-date: 2023-10-31 16:12:16
 tags: GitHub
+abbrlink: 1980487131
+date: 2023-10-31 16:12:16
 ---
 
 > GitHub 网址：https://github.com/
